@@ -9,7 +9,7 @@
 /* ====== Form Container ====== */
 form {
     max-width: 600px;
-    margin: 40px auto; /* center form */
+    margin: 40px auto; 
     background: #fff;
     padding: 25px 30px;
     border-radius: 12px;

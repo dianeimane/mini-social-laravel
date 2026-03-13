@@ -7,11 +7,9 @@ use App\Models\Post;
 use App\Models\Like;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests; // <--- hna
 
 class PostController extends Controller
 {
-    use AuthorizesRequests; // <--- hna
 
     public function index()
     {
@@ -50,7 +48,6 @@ public function update(Request $request, Post $post)
         'content'=>$request->content
     ]);
 
-    // ila update mzyan, redirect lpage dyal posts
     return redirect('/posts')->with('success', 'Post updated successfully!');
 }
 public function edit(Post $post)
@@ -73,14 +70,26 @@ public function destroy(Post $post)
     return redirect()->back();
 }
 
-    public function like(Post $post)
-    {
-        Like::create([
-            'user_id'=>session('user_id'),
-            'post_id'=>$post->id
-        ]);
+public function like(Post $post)
+{
+    $user_id = session('user_id');
 
-        return response()->json(['success'=>true]);
+    $like = Like::where('post_id', $post->id)
+                ->where('user_id', $user_id)
+                ->first();
+
+    if($like){
+        // unlike
+        $like->delete();
+    }else{
+        // like
+        Like::create([
+            'post_id'=>$post->id,
+            'user_id'=>$user_id
+        ]);
     }
+
+    return redirect()->back();
+}
 
 }

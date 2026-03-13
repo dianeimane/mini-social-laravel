@@ -9,17 +9,15 @@
     margin: 0;
 }
 
-/* Container li fih h2 w form */
 .register-container {
     text-align: center;
 }
 
-/* Header h2 fo9 form */
 .register-container h2 {
     color: #28a745;
     font-weight: 600;
     font-size: 28px;
-    margin-bottom: 25px; /* distance fo9 form */
+    margin-bottom: 25px;
 }
 
 /* Form card */

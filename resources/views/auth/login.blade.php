@@ -26,7 +26,24 @@ form {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     width: 320px;
-    margin: 0 auto; /* center form */
+}
+.message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 15px;
+    color: #333;
+}
+
+.message a {
+    color: #764ba2;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.message a:hover {
+    color: #5a3a8c;
+    text-decoration: underline;
 }
 
 /* Inputs */
@@ -71,7 +88,8 @@ form p.error {
     text-align: center;
     margin-top: 10px;
     font-weight: bold;
-}</style>
+}
+</style>
 
 <form method="POST" action="/login">
 
@@ -82,5 +100,9 @@ form p.error {
 <input type="password" name="password" placeholder="password">
 
 <button type="submit">Login</button>
+<p class="message">
+    Pas encore de compte ? 
+    <a href="/register">Inscrivez-vous ici</a>
+</p>
 
 </form>
