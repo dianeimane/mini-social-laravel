@@ -122,21 +122,20 @@ form.post-form button:hover{
     .post-card{ width: 100%; }
 }
 </style>
-
-<h2>{{ isset($postToEdit) ? 'Update Post' : 'Create Post' }}</h2>
-
 <a class="logout-btn" href="/logout">Logout</a>
 
-<form class="post-form" action="{{ isset($postToEdit) ? route('posts.update', $postToEdit->id) : route('posts.store') }}" method="POST">
+
+<h2> Create Post</h2>
+
+
+<form class="post-form"  action="{{ route('posts.store') }}" method="POST">
     @csrf
-    @if(isset($postToEdit))
-        @method('PUT')
-    @endif
+   
 
     <input type="text" name="title" placeholder="Title" value="{{ old('title', $postToEdit->title ?? '') }}">
     <textarea name="content" placeholder="Content">{{ old('content', $postToEdit->content ?? '') }}</textarea>
 
-    <button type="submit">{{ isset($postToEdit) ? 'Update Post' : 'Add Post' }}</button>
+    <button type="submit">Add Post</button>
 </form>
 
 <div class="posts-container">

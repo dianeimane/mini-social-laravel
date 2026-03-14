@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Like;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -48,7 +47,7 @@ public function update(Request $request, Post $post)
         'content'=>$request->content
     ]);
 
-    return redirect('/posts')->with('success', 'Post updated successfully!');
+    return redirect('/posts');
 }
 public function edit(Post $post)
 {

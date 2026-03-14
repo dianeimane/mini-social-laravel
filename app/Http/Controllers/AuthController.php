@@ -49,7 +49,7 @@ class AuthController extends Controller
             return redirect('/posts');
         }
 
-        return back()->withErrors(['email'=>'Email or password is wrong']);
+        return back();
     }
 
     public function logout()
