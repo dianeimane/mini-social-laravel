@@ -132,8 +132,8 @@ form.post-form button:hover{
     @csrf
    
 
-    <input type="text" name="title" placeholder="Title" value="{{ old('title', $postToEdit->title ?? '') }}">
-    <textarea name="content" placeholder="Content">{{ old('content', $postToEdit->content ?? '') }}</textarea>
+    <input type="text" name="title" placeholder="Title" >
+    <textarea name="content" placeholder="Content"></textarea>
 
     <button type="submit">Add Post</button>
 </form>
